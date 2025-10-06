@@ -40,19 +40,34 @@ body {
   line-height: 1.6;
 }
 
-header {
+.cabecera {
   border-bottom: 1px solid var(--border);
   background: var(--background);
   padding: .5rem 1rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  justify-content: center;
+  gap: 0rem; /* todo junto a la izquierda */
+
+  svg {
+    display: block; /* 👈 Elimina el espacio extra debajo del SVG */
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto; /* ✅ esto lo empuja al final */
+    gap: 1rem;
+  }
 
   h2 {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-primary);
+    margin-left: 0.5rem;
+    margin-right: 2rem;
+    line-height: 1; /* 👈 Reduce el line-height para que se centre mejor */
   }
 
   nav {
@@ -75,7 +90,7 @@ header {
 }
 
 /* Botones del Header */
-header div a:nth-child(1) {
+.cabecera div a:nth-child(1) {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   background-color: #0e2d58;
@@ -85,4 +100,196 @@ header div a:nth-child(1) {
   font-weight: 700;
   text-decoration: none;
   /* TODO */
+}
+
+.cabecera .obj a:nth-child(2) img {
+  display: block;
+  border-radius: 50%;
+}
+
+.container-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search h1,
+.search p {
+  text-align: center;
+}
+
+.search {
+  width: 60%;
+
+  h1 {
+    margin-top: 2rem;
+    font-size: 3rem;
+  }
+
+  p {
+    color: rgb(230, 230, 230);
+    margin-bottom: 1.5rem;
+  }
+  
+.search-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.search-label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: text;
+    z-index: 1;
+}
+
+.search-icon {
+    display: block;
+    color: #666;
+}
+
+#search-box {
+    width: 100%;
+    background-color: var(--input-bg);
+    padding: 12px 12px 12px 45px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: rgb(230, 230, 230);
+}
+
+#search-box:focus {
+    outline: none;
+}
+}
+
+.filters {
+  display: flex;
+  gap: .6rem; /* 👈 Esto sigue aquí, controla el espacio ENTRE los selects */
+
+  .filters-input {
+    color: var(--text-primary);
+    padding: 8px 35px 8px 12px; /* Padding INTERNO del select */
+    background-color: var(--border);
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    
+    /* Elimina la flecha nativa */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    /* Agrega tu propia flecha */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+  }
+
+  .filters-input:focus {
+    outline: none;
+  }
+
+  .filters-input option {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  padding: 10px;
+  }
+
+  .filters-input:focus {
+    outline: 2px solid var(--border); /* 👈 Borde cuando está abierto */
+    outline-offset: 2px;
+  }
+}
+
+.container-results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container-results .title {
+  width: 60%; /* Same as .resultados */
+  align-self: center; /* Center the title element itself */
+  margin: 1rem;
+}
+
+.resultados {
+  color: white;
+  width: 60%;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.resultados article:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+}
+
+.resultados article {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 5fr .5fr;
+
+  h3 {
+  display: inline;
+}
+  h5 {
+  color: rgb(160, 160, 160);
+  margin: .3rem 0rem;
+}
+  p {
+  color: rgb(230, 230, 230)
+}
+ .button-box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+  button {
+    color: white;
+    background-color: var(--primary-light);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+  }
+  button:hover {
+    cursor: pointer;
+    background-color: var(--primary-hover);
+  }
+}
+
+footer {
+  margin: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  nav {
+    display: flex;
+    gap: .5rem;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: rgb(230, 230, 230);
+    
+    /* 👇 Esto los hace cuadrados perfectos */
+    width: 40px;  /* Ancho fijo */
+    height: 40px; /* Alto fijo (igual al ancho) */
+    display: flex; /* Para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    
+    border-radius: 10px;
+  }
+  
+  .active {
+    background-color: var(--primary-light);
+  }
 }
