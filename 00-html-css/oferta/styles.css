@@ -1,0 +1,284 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #3b4550;
+  --primary-dark: #0a3d66;
+  --primary-hover: #0d5ba8;
+  --primary-light: #09f;
+  --background: #101922;
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border: rgba(255, 255, 255, 0.1);
+  --card-bg: #1e293b;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --input-bg: #1e293b;
+  --hsla-example: hsla(210, 100%, 56%, 1);
+}
+
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/inter:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+
+body {
+  font-family: system-ui;
+  background-color: #101922;
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+.cabecera {
+  border-bottom: 1px solid var(--border);
+  background: #101922;
+  padding: .5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0rem; /* todo junto a la izquierda */
+
+  svg {
+    display: block; /* 👈 Elimina el espacio extra debajo del SVG */
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto; /* ✅ esto lo empuja al final */
+    gap: 1rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-left: 0.5rem;
+    margin-right: 2rem;
+    line-height: 1; /* 👈 Reduce el line-height para que se centre mejor */
+  }
+
+  nav {
+  align-items: center;
+  gap: 1rem;
+  display: flex;
+
+  a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+    font-weight: 500;
+
+    &:hover, &:focus {
+      color: var(--primary);
+      outline: none;
+    }
+  }
+}
+}
+
+/* Botones del Header */
+.cabecera div a:nth-child(2) {
+  padding: .5rem 1rem;
+  border-radius: .5rem;
+  background-color: #0e2d58;
+  color: #0079ca;
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  /* TODO */
+}
+
+.cabecera .obj a:nth-child(3) img {
+  display: block;
+  border-radius: 50%;
+}
+
+.search-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.search-label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: text;
+    z-index: 1;
+}
+
+.search-icon {
+    display: block;
+    color: #666;
+}
+
+#search-box {
+    width: 100%;
+    background-color: var(--input-bg);
+    padding: 10px 1rem 10px 2.3rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: rgb(230, 230, 230);
+}
+
+#search-box:focus {
+    outline: none;
+}
+
+.container-all {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  nav {
+    display: flex;
+    gap: .5rem;
+    width: 60%;
+    margin: 2.5rem 0rem;
+
+    a {
+      text-decoration: none;
+      list-style-type: none;
+      color: var(--text-muted);
+    }
+
+    a:last-child {
+      color: var(--text-primary);
+    }
+
+    a::before {
+      content: '/ ';
+      color: #656565;
+      display: inline-block;
+      margin-right: .5rem;
+    }
+
+    a:first-child::before {
+      content: none;
+    }
+  }
+}
+
+
+.info-job {
+  width: 60%;
+  background: #111825;
+  padding: 1.5rem 1.5rem;
+  border-radius: 8px;
+
+  p {
+    color: var(--text-secondary);
+  }
+
+  .info-section-apply {
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    margin-top: 0;
+
+    .button-box {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: var(--text-primary);
+    }
+
+    small {
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+  }
+
+  .info-section {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem 0rem;
+    gap: .5rem;
+  }
+
+  .info-section:last-of-type {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .custom-list {
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .custom-list li {
+    position: relative;
+    padding-left: 30px; /* espacio para el ícono */
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+  }
+
+  .custom-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 22px;
+    height: 22px;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231173D4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='icon icon-tabler icons-tabler-outline icon-tabler-circle-check'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><path d='M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0'/><path d='M9 12l2 2l4 -4'/></svg>") no-repeat center;
+    background-size: contain;
+  }
+
+  .last-button-box {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .button-apply-job {
+    background: var(--primary-light);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    box-shadow: 0 6px 8px 4px rgba(0, 100, 255, 0.1);
+    transition: transform 300ms ease, background 200ms ease;
+    transform-origin: center;
+    margin-top: 0.5rem; /* Try 0.25em to 0.5em depending on your font */
+  }
+
+  /* Hover o focus (cualquiera de los dos) */
+  .button-apply-job:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    background: var(--primary-hover);
+    color: var(--text-secondary);
+  }
+
+  .button-apply-job:focus-visible {
+    transform: scale(1.05);
+    cursor: pointer;
+    background: var(--primary-hover);
+    color: var(--text-secondary);
+    outline: none; /* Optional: removes default browser outline */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Optional: adds a custom focus ring */
+  }
+
+  /* Efecto de “presionado” */
+  .button-apply-job:active {
+    transform: scale(0.95);
+  }
+}

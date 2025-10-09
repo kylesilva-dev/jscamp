@@ -9,7 +9,7 @@
   --primary-dark: #0a3d66;
   --primary-hover: #0d5ba8;
   --primary-light: #09f;
-  --background: #06182a;
+  --background: #101922;
   --text-primary: #ffffff;
   --text-secondary: #cbd5e1;
   --text-muted: #94a3b8;
@@ -239,13 +239,16 @@ body {
   h3 {
   display: inline;
 }
+
   h5 {
   color: rgb(160, 160, 160);
   margin: .3rem 0rem;
 }
+
   p {
   color: rgb(230, 230, 230)
 }
+
  .button-box {
   display: flex;
   justify-content: flex-end;
@@ -264,32 +267,41 @@ body {
   }
 }
 
-footer {
+footer nav {
   margin: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  nav {
-    display: flex;
-    gap: .5rem;
-  }
+  text-align: center;
+  gap: .5rem;
   
-  nav a {
+  a {
     text-decoration: none;
-    color: rgb(230, 230, 230);
+    color: var(--text-muted);
     
     /* 👇 Esto los hace cuadrados perfectos */
-    width: 40px;  /* Ancho fijo */
-    height: 40px; /* Alto fijo (igual al ancho) */
+    width: 2.5rem;  /* Ancho fijo */
+    height: 2.5rem; /* Alto fijo (igual al ancho) */
     display: flex; /* Para centrar el contenido */
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
     
     border-radius: 10px;
+
+    &:hover {
+      background: #fff;
+      color: #06182a;
+    }
+
+    &.is-active {
+      background: var(--primary-light);
+      color: white;
+      pointer-events: none;
+    }
   }
-  
-  .active {
-    background-color: var(--primary-light);
-  }
+}
+
+button.is-applied {
+  background: rgb(149, 161, 169);
+  color: #06182a;
 }
